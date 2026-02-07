@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>One Question 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400&family=Sacramento&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg,
+          #ff5fa2,
+          #ffb703,
+          #b983ff,
+          #5de2c7);
+      background-size: 400% 400%;
+      animation: gradientMove 8s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      color: #3b1d2a;
+      overflow: hidden;
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.96);
+      width: 440px;
+      padding: 48px 38px 70px;
+      border-radius: 28px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+      z-index: 5;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    .text {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 140px;
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 12px 28px;
+      border-radius: 34px;
+      font-size: 15px;
+      cursor: pointer;
+      position: absolute;
+      white-space: nowrap;
+      border: 2px solid #ff5fa2;
+      background: #fff4e6;
+      color: #3b1d2a;
+      transition: background 0.25s ease, transform 0.18s ease;
+    }
+
+    button:hover {
+      background: #ff5fa2;
+      color: white;
+    }
+
+    .yes {
+      left: 50%;
+      top: 40px;
+      transform: translateX(-130%);
+      font-weight: 500;
+      z-index: 10;
+    }
+
+    .no {
+      left: 50%;
+      top: 40px;
+      transform: translateX(30%);
+      z-index: 3;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .signature {
+      font-family: 'Sacramento', cursive;
+      font-size: 30px;
+      margin-top: 24px;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0);
+        opacity: 0.8;
+      }
+
+      to {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <div id="question">
+      <h1>So hehe... 💗</h1>
+
+      <div class="text">
+        I wanted to ask you something mapooks<br>
+      </div>
+
+      <h1>Will you be my Valentine?</h1>
+
+      <div class="buttons">
+        <button class="yes" onclick="sayYes()">Yes 💖</button>
+        <button class="no" id="noBtn">No 🙃</button>
+      </div>
+    </div>
+
+    <div id="answer" class="hidden">
+      <h1>YAYYYYYYYYYY 🤍</h1>
+      <div class="text">
+        I was hoping you’d say that hehe.<br><br>
+        My cutu valentine.
+      </div>
+      <div class="signature">— Pooka</div>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+
+    let guiltActivated = false;
+
+    noBtn.addEventListener("mouseenter", () => {
+      // Permanent guilt text
+      if (!guiltActivated) {
+        noBtn.textContent = "Haww do u h8 mi 🥺";
+        guiltActivated = true;
+      }
+
+      const btnRect = noBtn.getBoundingClientRect();
+
+      // HUGE jumps — nearly full screen
+      const maxX = window.innerWidth - btnRect.width - 20;
+      const maxY = window.innerHeight - btnRect.height - 20;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      // Move relative to viewport
+      noBtn.style.position = "fixed";
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    function sayYes() {
+      document.getElementById("question").classList.add("hidden");
+      document.getElementById("answer").classList.remove("hidden");
+      createHearts();
+    }
+
+    function createHearts() {
+      const hearts = ["💗", "💖", "💞", "💕"];
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+      }
+    }
+  </script>
+
+</body>
+
+</html>

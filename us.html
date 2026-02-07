@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Us 💕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg,
+          #ff5fa2,
+          #ffb703,
+          #b983ff,
+          #5de2c7);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+      font-family: 'Inter', sans-serif;
+      color: #3b1d2a;
+      display: flex;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .container {
+      max-width: 720px;
+      width: 100%;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      margin-bottom: 60px;
+      font-size: 34px;
+    }
+
+    .moment {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 70px;
+      text-align: center;
+      gap: 22px;
+    }
+
+    .photo {
+      width: 280px;
+      height: 280px;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .caption {
+      max-width: 440px;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    a.button {
+      display: inline-block;
+      text-decoration: none;
+      margin-top: 50px;
+      border-radius: 32px;
+      padding: 12px 30px;
+      font-size: 15px;
+      border: 2px solid #ff5fa2;
+      background: #fff4e6;
+      color: #3b1d2a;
+      transition: all 0.3s ease;
+    }
+
+    a.button:hover {
+      background: #ff5fa2;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    @media (min-width: 768px) {
+      .moment {
+        flex-direction: row;
+        text-align: left;
+      }
+
+      .moment:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Us 💕</h1>
+
+    <div class="moment">
+      <img src="images/first.jpeg" alt="Our beginning" class="photo">
+      <div class="caption">
+        <strong>When I fell in love.</strong><br>
+        Little did I know that this girl was gonna make next three years the best days of my life.
+      </div>
+    </div>
+
+    <div class="moment">
+      <img src="images/second.jpeg" alt="A favourite memory" class="photo">
+      <div class="caption">
+        <strong>Us in between.</strong><br>
+        When you went from "girl I love" to the center of my being and the purpose I was looking for.
+      </div>
+    </div>
+
+    <div class="moment">
+      <img src="images/third.jpeg" alt="Just us" class="photo">
+      <div class="caption">
+        <strong>Us now.</strong><br>
+        I couldn't imagine my life without you. You are the best thing to ever happen to me.
+      </div>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="valentine.html" class="button">One more thing →</a>
+    </div>
+  </div>
+
+</body>
+
+</html>
